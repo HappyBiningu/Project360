@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-b)e7lk-xzsdyv0la(qh851k#vx+4%@ozy7-1@7n+z*c6mey3^3
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['pro360.azurewebsites.net']
+ALLOWED_HOSTS = ['pro360.azurewebsites.net','127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -34,6 +34,7 @@ INSTALLED_APPS = [
 
 INTERNAL_IPS = [
     "127.0.0.1,"
+    "20.48.202.171,"
 ]
 
 MIDDLEWARE = [
