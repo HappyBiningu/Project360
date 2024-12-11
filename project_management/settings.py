@@ -9,7 +9,7 @@ SECRET_KEY = 'django-insecure-b)e7lk-xzsdyv0la(qh851k#vx+4%@ozy7-1@7n+z*c6mey3^3
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pro360.azurewebsites.net']
 
 # Application definition
 INSTALLED_APPS = [
