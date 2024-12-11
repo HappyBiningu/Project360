@@ -1,0 +1,40 @@
+{% load static tailwind_tags %}
+{% tailwind_css %}
+{% block title %}Signup{% endblock %}
+
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+        <form method="post">
+            {% csrf_token %}
+            <h2 class="text-3xl font-extrabold text-gray-800 text-center mb-6">Create an Account</h2>
+            <p class="text-gray-600 text-center mb-4">Join us and start your journey</p>
+            {{ form.non_field_errors }}
+
+            <!-- Form Fields -->
+            {% for field in form %}
+            <div class="mb-4">
+                <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ field.errors.0 }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <!-- Signup Button -->
+            <button 
+                type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">
+                Sign Up
+            </button>
+        </form>
+
+        <!-- Login Link -->
+        <div class="text-center mt-6">
+            <p class="text-gray-600 text-sm">
+                Already have an account? 
+                <a href="{% url 'login' %}" class="text-blue-500 font-medium hover:underline">Login here</a>.
+            </p>
+        </div>
+    </div>
+</div>

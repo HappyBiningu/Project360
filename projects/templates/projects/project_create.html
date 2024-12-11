@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto mt-8 px-4">
+    <h1 class="text-2xl font-bold mb-4 text-gray-800">Create Project</h1>
+
+    <form method="post" class="bg-white p-6 rounded-lg shadow-md">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="flex justify-end items-center mt-6">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                Save
+            </button>
+            <a href="{% url 'project_list' %}" class="ml-4 text-gray-600 hover:text-blue-600 transition duration-200">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

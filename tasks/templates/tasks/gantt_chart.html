@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-6 py-8">
+    <h1 class="text-4xl font-semibold text-gray-800 mb-8">Task Management Gantt Chart</h1>
+
+    <!-- Gantt Chart -->
+    <div class="bg-white rounded-lg shadow-lg p-6 overflow-auto">
+        <div id="gantt-chart-container">
+            {{ chart_html|safe }}
+        </div>
+    </div>
+
+    <!-- Workload Overview Table -->
+    <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Workload Overview</h2>
+        <table class="min-w-full table-auto border border-gray-200">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="px-4 py-2 text-left font-medium text-gray-600">Assignee</th>
+                    <th class="py-4 py-2 text-left font-medium text-gray-600">Project</th>
+                    <th class="px-4 py-2 text-left font-medium text-gray-600">Task</th>
+                    <th class="px-4 py-2 text-left font-medium text-gray-600">Start Date</th>
+                    <th class="px-4 py-2 text-left font-medium text-gray-600">End Date</th>
+                    <th class="px-4 py-2 text-left font-medium text-gray-600">Progress</th>
+                    <th class="px-4 py-2 text-left font-medium text-gray-600">Status</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% for task in tasks %}
+                <tr>
+                    <td class="px-4 py-2 flex items-center">
+                        <img src="{{ task.assignee_image }}" alt="{{ task.assignee }}" class="w-8 h-8 rounded-full mr-2">
+                        <span class="text-gray-700">{{ task.assignee }}</span>
+                    </td>
+                    <td class="px-4 py-2 text-gray-700">{{ task.project }}
+                    <td class="px-4 py-2 text-gray-700">{{ task.title }}</td>
+                    <td class="px-4 py-2 text-gray-700">{{ task.start_date|date:"Y-m-d" }}</td>
+                    <td class="px-4 py-2 text-gray-700">{{ task.end_date|date:"Y-m-d" }}</td>
+                    <td class="px-4 py-2 text-gray-700">{{ task.progress }}%</td>
+                    <td class="px-4 py-2 text-gray-700">{{ task.status }}
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="px-4 py-2 text-center text-gray-500">
+                        No tasks available.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

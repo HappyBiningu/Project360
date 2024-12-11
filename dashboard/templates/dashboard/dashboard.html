@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Project360{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-100 p-6">
+    <!-- Dashboard Header -->
+ 
+
+    <!-- Metrics Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Total Tasks -->
+        <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="text-center">
+                <h2 class="text-5xl font-extrabold">{{ total_tasks }}</h2>
+                <p class="text-lg mt-2">Total Tasks</p>
+            </div>
+        </div>
+
+        <!-- Overdue Tasks -->
+        <div class="bg-orange-500 text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="text-center">
+                <h2 class="text-5xl font-extrabold">{{ overdue_tasks }}</h2>
+                <p class="text-lg mt-2">Overdue Tasks</p>
+            </div>
+        </div>
+
+        <!-- Total Projects -->
+        <div class="bg-black text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="text-center">
+                <h2 class="text-5xl font-extrabold">{{ total_projects }}</h2>
+                <p class="text-lg mt-2">Total Projects</p>
+            </div>
+        </div>
+
+        <!-- Total Issues -->
+        <div class="bg-blue-700 text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div class="text-center">
+                <h2 class="text-5xl font-extrabold">{{ total_issues }}</h2>
+                <p class="text-lg mt-2">Total Issues</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Status Chart Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md mt-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Task Status Overview</h2>
+        <canvas id="taskStatusChart"></canvas>
+    </div>
+</div>
+
+<!-- Chart.js Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('taskStatusChart').getContext('2d');
+
+        const taskStatusData = {
+            labels: [
+                {% for item in tasks_by_status %}
+                '{{ item.status }}',
+                {% endfor %}
+            ],
+            datasets: [{
+                label: 'Task Status',
+                data: [
+                    {% for item in tasks_by_status %}
+                    {{ item.count }},
+                    {% endfor %}
+                ],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ],
+                borderColor: 'rgba(0, 0, 0, 0.1)',
+                borderWidth: 1
+            }]
+        };
+
+        const taskStatusChart = new Chart(ctx, {
+            type: 'bar',
+            data: taskStatusData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

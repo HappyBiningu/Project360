@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Create Issue | Project360{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-100 p-6">
+    <!-- Page Header -->
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-semibold text-gray-800">Create New Issue</h1>
+    </div>
+
+    <!-- Issue Creation Form -->
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <form method="POST">
+            {% csrf_token %}
+            
+            <!-- Title Field -->
+            <div class="mb-4">
+                <label for="id_title" class="block text-sm font-semibold text-gray-600">Title</label>
+                {{ form.title }}
+                <div class="text-red-500 text-xs mt-1">
+                    {% for error in form.title.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Description Field -->
+            <div class="mb-4">
+                <label for="id_description" class="block text-sm font-semibold text-gray-600">Description</label>
+                {{ form.description }}
+                <div class="text-red-500 text-xs mt-1">
+                    {% for error in form.description.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Issue Type Field -->
+            <div class="mb-4">
+                <label for="id_issue_type" class="block text-sm font-semibold text-gray-600">Issue Type</label>
+                {{ form.issue_type }}
+                <div class="text-red-500 text-xs mt-1">
+                    {% for error in form.issue_type.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Priority Field -->
+            <div class="mb-4">
+                <label for="id_priority" class="block text-sm font-semibold text-gray-600">Priority</label>
+                {{ form.priority }}
+                <div class="text-red-500 text-xs mt-1">
+                    {% for error in form.priority.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Status Field -->
+            <div class="mb-4">
+                <label for="id_status" class="block text-sm font-semibold text-gray-600">Status</label>
+                {{ form.status }}
+                <div class="text-red-500 text-xs mt-1">
+                    {% for error in form.status.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Project Field -->
+            <div class="mb-4">
+                <label for="id_project" class="block text-sm font-semibold text-gray-600">Project</label>
+                {{ form.project }}
+                <div class="text-red-500 text-xs mt-1">
+                    {% for error in form.project.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Assignee Field -->
+            <div class="mb-4">
+                <label for="id_assignee" class="block text-sm font-semibold text-gray-600">Assignee</label>
+                {{ form.assignee }}
+                <div class="text-red-500 text-xs mt-1">
+                    {% for error in form.assignee.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-6">
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">
+                    Create Issue
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

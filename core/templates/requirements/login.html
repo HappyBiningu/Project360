@@ -1,0 +1,47 @@
+{% load static tailwind_tags %}
+{% tailwind_css %}
+{% block title %}Login{% endblock %}
+
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+        <form method="post">
+            {% csrf_token %}
+            <h2 class="text-3xl font-extrabold text-gray-800 text-center mb-6">Welcome Back</h2>
+            <p class="text-gray-600 text-center mb-4">Please log in to your account</p>
+            {{ form.non_field_errors }}
+            
+            <!-- Email Field -->
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.username.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Password Field -->
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ form.password.errors.0 }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Login Button -->
+            <button 
+                type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">
+                Login
+            </button>
+        </form>
+
+        <!-- Signup Link -->
+        <div class="text-center mt-6">
+            <p class="text-gray-600 text-sm">
+                Don't have an account? 
+                <a href="{% url 'signup' %}" class="text-blue-500 font-medium hover:underline">Sign up here</a>.
+            </p>
+        </div>
+    </div>
+</div>

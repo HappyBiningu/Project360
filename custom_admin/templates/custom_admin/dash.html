@@ -1,0 +1,16 @@
+<!-- custom_admin/templates/custom_admin/dashboard.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Admin Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Custom Admin Dashboard</h1>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }} - {{ user.email }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
