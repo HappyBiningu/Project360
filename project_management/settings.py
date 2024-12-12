@@ -37,6 +37,8 @@ INTERNAL_IPS = [
     "20.48.202.171,"
 ]
 
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
