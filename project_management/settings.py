@@ -23,14 +23,17 @@ INSTALLED_APPS = [
     'core',
     'projects',
     'issues',
-    'mytheme',
+   
     'tasks',
     'dashboard',
     'notifications',
     'django_browser_reload',
     'custom_admin',
+    'theme',
     
 ]
+
+TAILWIND_APP_NAME = 'theme'
 
 INTERNAL_IPS = [
     "127.0.0.1,"
@@ -116,10 +119,11 @@ USE_TZ = True
 
 
 
+
 MEDIA_URL = 'profile_pictures/'
 MEDIA_ROOT = BASE_DIR / ''
 
-TAILWIND_APP_NAME = 'mytheme'
+
 
 
 STATIC_URL = '/static/'
