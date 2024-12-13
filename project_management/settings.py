@@ -3,9 +3,6 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
 SECRET_KEY = 'django-insecure-b)e7lk-xzsdyv0la(qh851k#vx+4%@ozy7-1@7n+z*c6mey3^3'
 
 DEBUG = True
@@ -103,34 +100,23 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Custom authentication backends
 AUTHENTICATION_BACKENDS = [
-    'core.backends.EmailBackend',  # Custom backend for email-based login
-    'django.contrib.auth.backends.ModelBackend',  # Fallback to default backend
+    'core.backends.EmailBackend',  
+    'django.contrib.auth.backends.ModelBackend',  
 ]
 
-# Redirects after login and logout
-LOGIN_REDIRECT_URL = 'dashboard'  # Adjust this based on your project
+LOGIN_REDIRECT_URL = 'dashboard'  
 LOGOUT_REDIRECT_URL = 'login'
 
-# Other settings
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-
-
-
 MEDIA_URL = 'profile_pictures/'
 MEDIA_ROOT = BASE_DIR / ''
-
-
-
-
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
+STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

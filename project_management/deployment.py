@@ -27,13 +27,11 @@ TAILWIND_APP_NAME = 'mytheme'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
  
-STATIC_ROOT = BASE_DIR / 'staticfiles' 
-
+MEDIA_URL = 'profile_pictures/'
+MEDIA_ROOT = BASE_DIR / ''
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-MEDIA_URL = '/media/'  
-MEDIA_ROOT = BASE_DIR / 'media'  
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Database configuration 
