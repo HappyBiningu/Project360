@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    'project_management.middleware.CorrectMimeTypeMiddleware',
 ]
 
 ROOT_URLCONF = 'project_management.urls'
