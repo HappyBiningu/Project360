@@ -13,6 +13,7 @@ module.exports = {
 
         /*  Templates within theme app (<tailwind_app_name>/templates), e.g. base.html. */
         '../templates/**/*.html',
+        './theme/templates/**/*.html',
 
         /*
          * Main templates directory of the project (BASE_DIR/templates).
@@ -25,6 +26,36 @@ module.exports = {
          * Adjust the following line to match your project structure.
          */
         '../../**/templates/**/*.html',
+
+               // Templates in the 'tasks' app
+        '../../tasks/templates/**/*.html',
+        
+               // Templates in the 'core' app
+        '../../core/templates/**/*.html',
+               
+               // Templates in the 'projects' app
+        '../../dashboard/templates/**/*.html',
+
+        '../../notifications/templates/**/*.html',
+
+        '../../issues/templates/**/*.html',
+
+        '../../projects/templates/**/*.html',
+
+        './theme/templates/**/*.html',    // Include all HTML files in theme/templates
+        './tasks/templates/**/*.html',    // Include all HTML files in tasks/templates
+        './core/templates/**/*.html',     // Include all HTML files in core/templates
+        './projects/templates/**/*.html',
+          
+        './notifications/templates/**/*.html',
+        './issues/templates/**/*.html',
+        './dashboard/templates/**/*.html',
+
+
+
+        './static_src/**/*.js', 
+
+        './theme/static_src/**/*.css',
 
         /**
          * JS: If you use Tailwind CSS in JavaScript, uncomment the following lines and make sure
