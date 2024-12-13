@@ -22,8 +22,25 @@ MIDDLEWARE = [
 NPM_BIN_PATH = "/root/.nvm/versions/node/v18.20.5/bin/npm"
 
 
+TAILWIND_APP_NAME = 'mytheme'
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+
+MEDIA_URL = 'profile_pictures/'
+MEDIA_ROOT = BASE_DIR / ''
+
+
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR /"static",
+]
+
+
 
 
 conn_str = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']

@@ -29,11 +29,11 @@ INSTALLED_APPS = [
     'notifications',
     'django_browser_reload',
     'custom_admin',
-    'theme',
+    'mytheme',
     
 ]
 
-TAILWIND_APP_NAME = 'theme'
+TAILWIND_APP_NAME = 'mytheme'
 
 INTERNAL_IPS = [
     "127.0.0.1,"
